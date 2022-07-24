@@ -18,7 +18,7 @@ export default {
 <template>
   <div class="flex flex-col h-screen relative items-center">
     <div
-      class="shadow-xl bg-gray-300 rounded-xl w-1/3 m-8 p-8 flex items-center flex-col"
+      class="shadow-xl bg-gray-300 rounded-xl w-fit m-8 p-8 flex items-center flex-col"
     >
       <table class="table-auto">
         <thead>

@@ -3,17 +3,17 @@ import axios from "axios";
 
 let baseUrl = "http://localhost:3000";
 
-export const useCustomerStore = defineStore({
-  id: "customerStore",
+export const useSaleStore = defineStore({
+  id: "saleStore",
   state: () => ({
-    customers: [],
+    sales: [],
   }),
   actions: {
-    async getCustomers() {
+    async getSales() {
       try {
-        let response = await axios.get(`${baseUrl}/customers`);
-        this.customers = response.data.Customers;
-        console.log(this.customers);
+        let response = await axios.get(`${baseUrl}/sales`);
+        this.sales = response.data.Sales;
+        console.log(this.sales);
       } catch (error) {
         console.log(error);
         this.$toast.error("Something went wrong", {
@@ -21,6 +21,9 @@ export const useCustomerStore = defineStore({
           duration: 3000,
         });
       }
+    },
+    createSale(sale) {
+      return axios.post(`${baseUrl}/sales`, sale);
     },
   },
 });

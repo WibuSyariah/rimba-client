@@ -10,9 +10,17 @@ export const useItemStore = defineStore({
   }),
   actions: {
     async getItems() {
-      let response = await axios.get(`${baseUrl}/items`);
-      this.items = response.data.Items;
-      console.log(this.items);
+      try {
+        let response = await axios.get(`${baseUrl}/items`);
+        this.items = response.data.Items;
+        console.log(this.items);
+      } catch (error) {
+        console.log(error);
+        this.$toast.error("Something went wrong", {
+          position: "top-right",
+          duration: 3000,
+        });
+      }
     },
   },
 });
